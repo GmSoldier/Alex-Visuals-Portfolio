@@ -261,18 +261,6 @@
     stage.setPointerCapture(event.pointerId);
   });
 
-    dragging = true;
-
-    startX = event.clientX;
-    startY = event.clientY;
-
-    startPanX = x;
-    startPanY = y;
-
-    stage.classList.add("is-dragging");
-    stage.setPointerCapture(event.pointerId);
-  });
-
   stage.addEventListener("pointermove", (event) => {
     if (!dragging) return;
 
