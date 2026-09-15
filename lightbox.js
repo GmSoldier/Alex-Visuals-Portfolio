@@ -27,6 +27,13 @@
   images.forEach((img) => {
     img.classList.add("zoomable");
     img.setAttribute("title", "Click to open image viewer");
+
+    // Prevent browser from dragging the image as a file
+    img.draggable = false;
+
+    img.addEventListener("dragstart", (event) => {
+      event.preventDefault();
+    });
   });
 
 
