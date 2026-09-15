@@ -97,6 +97,10 @@
      ------------------------------------------------------- */
   const stage = viewer.querySelector(".image-viewer-stage");
   const viewerImage = viewer.querySelector(".image-viewer-image");
+  viewerImage.draggable = false;
+  viewerImage.addEventListener("dragstart", (event) => {
+    event.preventDefault();
+  });
   const zoomLabel = viewer.querySelector(".image-viewer-zoom");
   const closeButton = viewer.querySelector(".image-viewer-close");
 
@@ -232,9 +236,23 @@
      Drag / pan
      ------------------------------------------------------- */
   stage.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+
     if (event.pointerType === "mouse" && event.button !== 0) {
       return;
     }
+
+    dragging = true;
+
+    startX = event.clientX;
+    startY = event.clientY;
+
+    startPanX = x;
+    startPanY = y;
+
+    stage.classList.add("is-dragging");
+    stage.setPointerCapture(event.pointerId);
+  });
 
     dragging = true;
 

@@ -712,6 +712,7 @@ main img.zoomable {
   transform-origin: center center;
   will-change: transform;
   transition: transform 0.08s linear;
+  pointer-events: none;
 }
 
 .image-viewer-stage.is-dragging .image-viewer-image {
